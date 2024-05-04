@@ -1,7 +1,7 @@
-import {FindAllUsersCase} from './case';
-import {User} from '../../database/entities/user';
-import {UserRepositoryFake} from '../../database/repositories/user/fake';
-import {UserRepository} from '../../database/repositories/user/repository';
+import {User} from '../database/entities/user.entity';
+import {UserRepository} from '../database/repositories/user/user.repository';
+import {UserRepositoryFake} from '../database/repositories/user/user.repository-fake';
+import {FindAllUsersCase} from './find-all-users';
 
 describe('FindAllUsersCase', () => {
   let repository: UserRepository;
@@ -16,11 +16,21 @@ describe('FindAllUsersCase', () => {
     await repository.save(
       new User({
         name: 'any_name',
+        username: 'any_username',
+        passwordHash: 'any_hash',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        id: 'any_id',
       })
     );
     await repository.save(
       new User({
         name: 'any_name2',
+        username: 'any_username',
+        passwordHash: 'any_hash',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+        id: 'any_id',
       })
     );
 

@@ -1,8 +1,8 @@
 import {Request, Response} from 'express';
-import {makeFindAllUsers} from '../../../cases/find-all-users/make';
-import {userToJson} from '../../presenters/user';
+import {makeFindAllUsersCase} from '../../../cases/find-all-users';
+import {makeUsersJson} from '../../presenters/user.presenter';
 
 export async function findAllUsers(req: Request, res: Response) {
-  const response = await makeFindAllUsers().execute();
-  res.send(response.map(userToJson));
+  const response = await makeFindAllUsersCase().execute();
+  res.send(makeUsersJson(response));
 }

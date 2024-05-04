@@ -1,5 +1,5 @@
-import {User} from '../../entities/user';
-import {UserRepository} from './repository';
+import {User} from '../../entities/user.entity';
+import {UserRepository} from './user.repository';
 
 export class UserRepositoryFake implements UserRepository {
   private readonly db: User[] = [];
@@ -10,6 +10,5 @@ export class UserRepositoryFake implements UserRepository {
 
   async save(user: User) {
     this.db.push(user);
-    return user;
   }
 }
