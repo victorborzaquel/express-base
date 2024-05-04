@@ -2,10 +2,11 @@ import {z} from 'zod';
 import {User} from '../database/entities/user.entity';
 import {UserRepository} from '../database/repositories/user/user.repository';
 import {makeUserRepository} from '../database/repositories/user/user.repository-orm';
-import {HashProvider} from '../lib/hash.provider';
+import {HashProvider} from '../lib/hash-provider/hash.provider';
+import {HashProviderImpl} from '../lib/hash-provider/hash.provider-impl';
 
 export function makeCreateUserCase() {
-  return new CreateUserCase(makeUserRepository(), new HashProvider());
+  return new CreateUserCase(makeUserRepository(), new HashProviderImpl());
 }
 
 const schema = z.object({

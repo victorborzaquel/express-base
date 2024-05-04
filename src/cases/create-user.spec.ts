@@ -1,7 +1,7 @@
 import {User} from '../database/entities/user.entity';
 import {UserRepository} from '../database/repositories/user/user.repository';
 import {UserRepositoryFake} from '../database/repositories/user/user.repository-fake';
-import {HashProviderFake} from '../lib/hash-fake.provider';
+import {HashProviderFake} from '../lib/hash-provider/hash.provider-fake';
 import {CreateUserCase} from './create-user';
 
 describe('CreateUserCase', () => {

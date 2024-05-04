@@ -1,6 +1,7 @@
 import {hash, verify} from 'argon2';
+import {HashProvider} from './hash.provider';
 
-export class HashProvider {
+export class HashProviderImpl implements HashProvider {
   async hash(value: string): Promise<string> {
     return hash(value);
   }
